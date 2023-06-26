@@ -6,19 +6,23 @@ import Spinner from "../components/spinner";
 import AddToFavouritesIcon from '../components/cardIcons/addToFavourites';
 
 const HomePage = () => {
-    const { data, error, isLoading, isError } = useQuery("discover", getMovies);
+  // Use the useQuery hook from react-query to fetch movie data
+  const { data, error, isLoading, isError } = useQuery("discover", getMovies);
 
+  // If the data is still loading, display a spinner
   if (isLoading) {
     return <Spinner />;
   }
+
+  // If there is an error, display the error message
   if (isError) {
     return <h1>{error.message}</h1>;
   }
 
+  // Extract the movie results from the data object
   const movies = data ? data.results : [];
 
-  
-
+  // Render the PageTemplate component with the fetched movies and the AddToFavouritesIcon component as the action
   return (
     <PageTemplate
       title="Discover Movies"
@@ -29,4 +33,5 @@ const HomePage = () => {
     />
   );
 };
+
 export default HomePage;
