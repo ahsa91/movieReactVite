@@ -3,7 +3,7 @@ import PageTemplate from '../components/templateMovieListPage'
 import { getUpcomingMovies } from "../api/tmdb-api";
 import { useQuery } from 'react-query'
 import Spinner from "../components/spinner";
-import AddToFavouritesIcon from '../components/cardIcons/addToFavourites';
+import AddToPlaylistsIcon from '../components/cardIcons/addToPlaylist';
 
 const UpcomingPage = () => {
   // Use the useQuery hook from react-query to fetch movie data
@@ -28,7 +28,7 @@ const UpcomingPage = () => {
       title="Upcoming Movies"
       movies={movies}
       action={(movie) => {
-        return <AddToFavouritesIcon movie={movie} />
+        return <AddToPlaylistsIcon movie={movie} />
       }}
     />
   );
